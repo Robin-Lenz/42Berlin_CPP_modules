@@ -1,6 +1,11 @@
 #ifndef PhoneBook_H
 # define PhoneBook_H
 
+#include <iostream>
+#include <sstream>
+#include <cstring>
+#include <iomanip>
+
 class Contacts {
 	
 	public:
