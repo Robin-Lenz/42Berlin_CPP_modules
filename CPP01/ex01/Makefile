@@ -6,7 +6,6 @@ CXXFLAGS = -g #-Wall -Wextra -Werror -std=c++98
 
 SRCS =main.cpp\
 	Zombie.cpp\
-	newZombie.cpp\
 	zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
@@ -17,7 +16,7 @@ $(NAME): $(OBJS)
 		$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
-		rm -rf $(OBJ_DIR)
+		rm -rf $(OBJS)
 
 fclean: clean
 		rm -f $(NAME)

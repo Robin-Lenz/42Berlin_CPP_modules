@@ -1,7 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string nm) : _name(nm){
-	this->announce();
+Zombie::Zombie(){
 	return;
 }
 
@@ -9,14 +8,11 @@ Zombie::~Zombie(){
 	return;
 }
 
-// Horde::Horde(int n, std::string name){
-// 	// int	i = 0;
-// 	// while (i < n){
-// 	// 	horde[i] = newZombie(name);
-// 	// 	i++;
-// 	// }
-// };
+void Zombie::announce( void ){
+	std::cout << this->_name << ": Moar BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-// Horde::~Horde(){
-
-// };
+void Zombie::getnamed(std::string nm){
+	this->_name = nm;
+	return;
+}
