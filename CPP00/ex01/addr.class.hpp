@@ -44,7 +44,7 @@ class PhoneBook {
 		PhoneBook(int = 0);
 		~PhoneBook(void);
 		void	add_con();
-		void	search(std::string tmp, std::string buff);
+		void	search();
 };
 
 std::string	cut_string(std::string str);

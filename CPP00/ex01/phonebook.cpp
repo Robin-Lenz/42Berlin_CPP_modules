@@ -90,7 +90,6 @@ void	PhoneBook::add_con(){
 		secret = cut_string(secret);
 	std::cout << "enter a phonenumber" << std::endl;
 	std::cin >> phone;
-	// soll phone auch abgeschnitten werden ?
 
 	/*move each contact*/
 	for (int i = this->_num; i > 0 && i < 8; i--)
@@ -112,35 +111,37 @@ void	Contacts::assign_data(std::string name, std::string lastname, std::string p
 	this->_secret = secret;
 }
 
-void	PhoneBook::search(std::string tmp, std::string buff){
-	if (this->_num > 8)
-		this->_num = 8;
-	size_t pos = buff.find(' ');
-	tmp = buff.substr(pos + 1);
-	if (tmp.length() == 1 && buff.length() != 1){
+void	PhoneBook::search(){
+	std::string ind;
+	for (int j = this->_num - 1; j >= 0 && j < 8; j--){
+				print_contact(j, this->cons);
+				break;
+	}
+	while (1){
+		std::cout << "What index are you looking for ?" << std::endl;
+		std::cin >> ind;
+		if (this->_num > 8)
+			this->_num = 8;
 		std::string	nums = "12345678";
-		pos = nums.find(tmp[0]);
-		if (pos < 9 && tmp[0] == nums[pos]){
+		size_t pos = nums.find(ind);
+		if (pos < 9 && ind == nums.substr(nums[pos - 1], 1)){
 			for (int k = 0; k < this->_num; k++){
 				std::stringstream ss;
 				ss << this->cons[k].get_index();
 				std::string strNumber = ss.str();
-				if (strNumber == tmp)
+				if (strNumber == ind){
 					found_contact(k, this->cons);
+					break;
+				}
 			}
 		}
 		else
 			std::cout << "this phonebook can store 8 contacts max" << std::endl;
+		}
 	}
-	else
-		for (int j = this->_num - 1; j >= 0 && j < 8; j--)
-			print_contact(j, this->cons);
-
-}
 
 int	main(void){
 	std::string		buff;
-	std::string		tmp;
 	PhoneBook		Book;
 
 	std::cout << "ADD [1], SEARCH [2], EXIT [3]" << std::endl;
@@ -150,8 +151,8 @@ int	main(void){
 			Book.add_con();
 			std::getline(std::cin, buff);
 		}
-		else if ((buff.compare(0, 6, "SEARCH", 0, 6) == 0 || buff[0] == '2'))
-			Book.search(tmp, buff);
+		else if ((buff.compare(0, 6, "SEARCH", 0, 6) == 0 || buff == "2"))
+			Book.search();
 		else if (buff == "EXIT" || buff == "3")
 			break;
 		else
