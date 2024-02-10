@@ -115,16 +115,13 @@ void	PhoneBook::search(){
 	std::string ind;
 	for (int j = this->_num - 1; j >= 0 && j < 8; j--){
 				print_contact(j, this->cons);
-				break;
 	}
 	while (1){
 		std::cout << "What index are you looking for ?" << std::endl;
 		std::cin >> ind;
 		if (this->_num > 8)
 			this->_num = 8;
-		std::string	nums = "12345678";
-		size_t pos = nums.find(ind);
-		if (pos < 9 && ind == nums.substr(nums[pos - 1], 1)){
+		if (ind.length() == 1 && (ind[0] >= '0' && ind[0] <= '7')){
 			for (int k = 0; k < this->_num; k++){
 				std::stringstream ss;
 				ss << this->cons[k].get_index();
@@ -134,6 +131,7 @@ void	PhoneBook::search(){
 					break;
 				}
 			}
+			break;
 		}
 		else
 			std::cout << "this phonebook can store 8 contacts max" << std::endl;
@@ -149,14 +147,15 @@ int	main(void){
 	while (std::getline(std::cin, buff)){
 		if (buff == "ADD" || buff == "1"){
 			Book.add_con();
-			std::getline(std::cin, buff);
 		}
-		else if ((buff.compare(0, 6, "SEARCH", 0, 6) == 0 || buff == "2"))
+		else if ((buff.compare(0, 6, "SEARCH", 0, 6) == 0 || buff == "2")){
 			Book.search();
+		}
 		else if (buff == "EXIT" || buff == "3")
 			break;
 		else
 			std::cout << "Invalid entry" << std::endl;
+		std::getline(std::cin, buff);
 		buff.clear();
 		std::cout << "enter command" << std::endl;
 	}

@@ -2,23 +2,6 @@
 #include <fstream>
 #include <string>
 
-void repe(int pos, std::string s1, std::string s2){
-	std::string result;
-	// size_t pos = 0;
-	size_t lastPos = 0;
-
-	while ((pos = s1.find(s2, lastPos))){// != std::string::npos) {
-		// Append the part of the string before the occurrence of the search string
-		result.append(s1, lastPos, pos - lastPos);
-
-		// Append the replacement string
-		result += s2;
-
-		// Move the position after the occurrence of the search string
-		lastPos = pos + s2.length();
-	}
-}
-
 int	main(int ac, char **av){
 	if (ac != 4){
 		std::cout << "enter a filenmane and two strings" << std::endl;
@@ -28,17 +11,22 @@ int	main(int ac, char **av){
 	std::string s1(av[2]);
 	std::string s2(av[3]);
 	std::ofstream outfile(std::string(av[1]) + ".replace");
-
-	std::string content;
-	while (std::getline(infile, content))
+	std::string tmp = "";
+	std::string result = "";
+	while (std::getline(infile, result))
 	{
-		int pos = 0;
-		while (pos = s1.find(s2))
+		int lastPos = 0;
+		int pos = result.find(s1, lastPos);
+		while (pos < result.size())
 		{
-			content.repe(pos, s1, s2);
-			pos += s2.length();
+			tmp.append(result, lastPos, pos - lastPos);
+			tmp.append(s2);
+			pos += s1.length();
+			lastPos = pos;
+			pos = result.find(s1, lastPos);
 		}
-		outfile << content << '\n';
+		outfile << tmp << '\n';
+		tmp = "";
 	}
 	return (0);
 }
