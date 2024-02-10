@@ -154,8 +154,11 @@ int	main(void){
 		else if (buff == "EXIT" || buff == "3")
 			break;
 		else
+		{
 			std::cout << "Invalid entry" << std::endl;
-		std::getline(std::cin, buff);
+			std::cout << "enter command" << std::endl;
+			continue ;
+		}
 		buff.clear();
 		std::cout << "enter command" << std::endl;
 	}

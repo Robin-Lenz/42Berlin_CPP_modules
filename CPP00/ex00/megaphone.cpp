@@ -7,7 +7,7 @@ int	main(int ac, char **av)
 	int		j = 0;
 
 	if (ac == 1)
-		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
 		i++;

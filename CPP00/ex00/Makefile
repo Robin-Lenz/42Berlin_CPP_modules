@@ -2,7 +2,7 @@ NAME = megaphone
 
 CXX	= c++
 
-CXXFLAGS	= -std=c++98 -g#-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS = megaphone.cpp
 
