@@ -6,5 +6,6 @@ Zombie::Zombie(std::string nm) : _name(nm), tmp(_name){
 }
 
 Zombie::~Zombie(){
+	std::cout << this->_name << std::endl;
 	return;
 }

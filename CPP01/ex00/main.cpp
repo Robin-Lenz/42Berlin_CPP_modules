@@ -6,7 +6,7 @@ void Zombie::announce( void ){
 
 int	main(void){
 	Zombie	*newZ = newZombie("ich");
-	randomChump("du");
 	delete newZ;
+	randomChump("du");
 	return(0);
 }

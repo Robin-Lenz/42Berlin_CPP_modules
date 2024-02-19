@@ -1,17 +1,12 @@
 #include "HumanB.hpp"
 
-
-// HumanB::HumanB(){
-// 	return ;
-// }
-
 HumanB::HumanB(std::string name) : _name(name){
 	return ;
 }
 
-HumanB::~HumanB()
-{
+HumanB::~HumanB(){
 }
+
 void	HumanB::attack(){
 		std::cout << this->_name << " attacks with their " << this->_knife->getType() << std::endl;
 }

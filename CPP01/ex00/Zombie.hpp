@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <iostream>
 
-
 class Zombie{
 
 	private:
@@ -17,9 +16,7 @@ class Zombie{
 		std::string	tmp;
 };
 
-
 void	randomChump( std::string name );
 Zombie	*newZombie( std::string name );
-
 
 #endif
