@@ -32,6 +32,7 @@ int	main(int ac, char **av){
 			lastPos = pos;
 			pos = result.find(s1, lastPos);
 		}
+		tmp.append(result, lastPos);
 		outfile << tmp << '\n';
 		tmp = "";
 	}
