@@ -19,7 +19,7 @@ int	main(int ac, char **av){
 	while (std::getline(infile, result))
 	{
 		int lastPos = 0;
-		int pos = result.find(s1, lastPos);
+		unsigned int pos = result.find(s1, lastPos);
 		if (s1 == ""){
 			outfile << result << '\n';
 			continue ;
