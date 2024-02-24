@@ -1,12 +1,13 @@
-NAME = replace
+NAME = Orthodoxical
 
 CXX	= c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS = main.cpp\
+	Fixed.cpp
 
-OBJS = $(patsubst %.cpp,%.o,$(SRCS))
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 

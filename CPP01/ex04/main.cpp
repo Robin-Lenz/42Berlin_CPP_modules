@@ -7,13 +7,15 @@ int	main(int ac, char **av){
 		std::cout << "enter a filenmane and two strings" << std::endl;
 		return (1);
 	}
-	std::ifstream infile(av[1]);
+	std::ifstream infile;
+	infile.open(av[1]);
 	if (!infile)
 		return (-1);
 	
 	std::string s1(av[2]);
 	std::string s2(av[3]);
-	std::ofstream outfile(std::string(av[1]) + ".replace");
+	std::ofstream outfile;
+	outfile.open(((std::string(av[1]) + ".replace").c_str()));
 	std::string tmp = "";
 	std::string result = "";
 	while (std::getline(infile, result))
@@ -36,5 +38,7 @@ int	main(int ac, char **av){
 		outfile << tmp << '\n';
 		tmp = "";
 	}
+	infile.close();
+	outfile.close
 	return (0);
 }
