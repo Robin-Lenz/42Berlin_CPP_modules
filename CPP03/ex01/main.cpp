@@ -1,8 +1,11 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
 
 int main(){
 	ClapTrap a("Gerd");
 	ClapTrap b("Harald");
+	ScavTrap c("Isolde");
+	ScavTrap d;
 
 	a.attack(b.GetName());
 	b.takeDamage(4);
@@ -11,5 +14,10 @@ int main(){
 	a.attack(b.GetName());
 	b.takeDamage(10);
 	b.beRepaired(2);
+
+	d.guardGate();
+	c.attack("Harald");
+	b.takeDamage(20);
+
 	return(0);
 }

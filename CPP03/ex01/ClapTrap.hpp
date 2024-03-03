@@ -1,5 +1,5 @@
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <string>
 #include <ostream>
@@ -8,10 +8,12 @@
 class ClapTrap
 {
 	private:
-		std::string _name;
-		int _hitpoints;
-		int _energy;
-		int _damage;
+
+	protected:
+		std::string	_name;
+		int			_hitpoints;
+		int			_energy;
+		int			_damage;
 
 	public:
 		ClapTrap(std::string name);

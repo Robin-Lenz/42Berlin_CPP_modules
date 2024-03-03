@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hitpoints(10), _energy(10), _damage(0){
-	std::cout << "constructor called " << this->_name << std::endl;
+	std::cout << "ClapTrap constructor called " << this->_name << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "deconstructor called" << std::endl;
+	std::cout << "ClapTrap deconstructor called " << this->_name << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target){
@@ -13,7 +13,7 @@ void ClapTrap::attack(const std::string &target){
 		if (this->_energy > 0)
 		{
 			std::cout << "ClapTrap " << this->_name << " attacks " << target << \
-			", cuasing " << this->_damage << " points of damage!" << std::endl;
+			", causing " << this->_damage << " points of damage!" << std::endl;
 
 			this->_energy--;
 		}
