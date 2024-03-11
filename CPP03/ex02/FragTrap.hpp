@@ -9,8 +9,11 @@ class FragTrap : ClapTrap
 		/* data */
 	public:
 		FragTrap();
+		FragTrap(const FragTrap &a);
 		FragTrap(std::string name);
 		~FragTrap();
+
+		FragTrap &operator=(const FragTrap &a);
 
 		void highFivesGuys(void);
 };

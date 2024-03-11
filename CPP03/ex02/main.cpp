@@ -7,8 +7,10 @@ int main(){
 	ClapTrap b("Harald");
 	ScavTrap c("Isolde");
 	ScavTrap d;
+	ScavTrap h(d);
 	FragTrap e("Ben");
 	FragTrap f;
+	FragTrap i = e;
 
 	a.attack(b.GetName());
 	b.takeDamage(4);

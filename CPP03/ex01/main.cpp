@@ -6,6 +6,7 @@ int main(){
 	ClapTrap b("Harald");
 	ScavTrap c("Isolde");
 	ScavTrap d;
+	ScavTrap e(d);
 
 	a.attack(b.GetName());
 	b.takeDamage(4);

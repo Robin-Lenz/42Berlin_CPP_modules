@@ -14,8 +14,12 @@ class ClapTrap
 		int _damage;
 
 	public:
+		ClapTrap();
+		ClapTrap(const ClapTrap &a);
 		ClapTrap(std::string name);
 		~ClapTrap();
+
+		ClapTrap &operator=(const ClapTrap &a);
 
 		int GetDamage();
 		std::string GetName();
