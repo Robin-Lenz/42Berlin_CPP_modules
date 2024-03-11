@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/11 15:57:56 by rpodack           #+#    #+#             */
+/*   Updated: 2024/03/11 15:58:25 by rpodack          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
@@ -7,7 +19,6 @@ Fixed::Fixed(){
 
 Fixed::Fixed(const Fixed &a){
 	std::cout << "Copy constructor called" << std::endl;
-	// this->setRawBits(a.getRawBits());
 	*this = a;
 }
 

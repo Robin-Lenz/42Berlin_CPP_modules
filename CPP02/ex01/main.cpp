@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/11 15:58:03 by rpodack           #+#    #+#             */
+/*   Updated: 2024/03/11 15:58:17 by rpodack          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 int main(void){
@@ -16,6 +28,3 @@ std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 return 0;
 }
-
-//output misses one copy assignment operator 
-//called compared to output in subject

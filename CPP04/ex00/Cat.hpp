@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 15:55:30 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/11 15:55:31 by rpodack          ###   ########.fr       */
+/*   Created: 2024/03/11 15:59:58 by rpodack           #+#    #+#             */
+/*   Updated: 2024/03/11 17:27:42 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef CAT_H
+# define CAT_H
 
-void Zombie::announce( void ){
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#include <string>
+#include "Animal.hpp"
 
-int	main(void){
-	Zombie	*newZ = newZombie("ich");
-	delete newZ;
-	randomChump("du");
-	return(0);
-}
+class Cat : Animal
+{
+	private:
+		/*data*/
+	public:
+		Cat();
+		Cat(const Cat &a);
+		~Cat();
+	
+		Cat &operator=(const Cat &a);
+};
+
+
+
+
+#endif
