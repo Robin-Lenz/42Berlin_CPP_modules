@@ -16,7 +16,7 @@
 #include <string>
 #include "Animal.hpp"
 
-class Cat : Animal
+class Cat : public Animal
 {
 	private:
 		/*data*/
@@ -26,6 +26,8 @@ class Cat : Animal
 		~Cat();
 	
 		Cat &operator=(const Cat &a);
+
+		void makeSound()const;
 };
 
 

@@ -10,39 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : type("Tsveto")
+AAnimal::AAnimal() : type("Tsveto")
 {
-	std::cout << this->type << " is a beast (Animal default constructor)" << std::endl;
+	std::cout << this->type << " is a beast (AAnimal default constructor)" << std::endl;
 }
 
-Animal::Animal(const Animal &a)
+AAnimal::AAnimal(const AAnimal &a)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "AAnimal copy constructor called" << std::endl;
 	*this = a;
 }
 
-Animal::Animal(std::string type) : type(type)
+AAnimal::AAnimal(std::string type) : type(type)
 {
-	std::cout << "Animal constructor with string arg called" << std::endl;
+	std::cout << "AAnimal constructor with string arg called" << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &a){
-	std::cout << "Animal assignment operator called" << std::endl;
+AAnimal &AAnimal::operator=(const AAnimal &a){
+	std::cout << "AAnimal assignment operator called" << std::endl;
 	this->type = a.type;
 	return *this;
 }
 
-void Animal::makeSound()const{
+void AAnimal::makeSound()const{
 	std::cout << this->getType() << " Arrrgh !" << std::endl;
 }
 
-std::string Animal::getType()const{
+std::string AAnimal::getType()const{
 	return (this->type);
 }

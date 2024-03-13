@@ -17,26 +17,43 @@
 #include "WrongCat.hpp"
 
 int main(){
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* z = new WrongCat();
-	(void)i;
-	(void)j;
+	// const Animal *Arr[5];
+
+	// Brain b;
+	// Brain c(b);
+	// b = c;
+
+	const Animal *meta = new Animal();
+	// const Animal* i = new Cat();
+	// const Animal* j = new Dog();
+	// const WrongAnimal* z = new WrongCat();
+	
 	(void)meta;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	// (void)i;
+	// (void)j;
+	// (void)Arr;
+	// std::cout << i->getType() << " " << std::endl;
+	// std::cout << j->getType() << " " << std::endl;
+	// i->makeSound(); //will output the cat sound!
+	// j->makeSound();
 	meta->makeSound();
 
-	z->makeSound();
-
+	// z->makeSound();
+	// for (int counter = 0; counter < 5; counter++){
+	// 	if (counter % 2 == 0)
+	// 		Arr[counter] = new Cat();
+	// 	else
+	// 		Arr[counter] = new Dog();
+	// }
+	// for (int counter = 0; counter < 5; counter++){
+	// 	delete Arr[counter];
+	// }
+	
 
 	delete meta;
-	delete j;
-	delete i;
-	delete z;
+	// delete j;
+	// delete i;
+	// delete z;
 
 return 0;
 }

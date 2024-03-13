@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 #include <string>
 #include <iomanip>
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 	private:
 		/* data */
@@ -26,13 +26,13 @@ class Animal
 		std::string type;
 
 	public:
-		Animal();
-		Animal(const Animal &a);
-		Animal(std::string type);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(const AAnimal &a);
+		AAnimal(std::string type);
+		virtual ~AAnimal();
 
-		Animal &operator=(const Animal &a);
-		virtual void makeSound()const;
+		AAnimal &operator=(const AAnimal &a);
+		virtual void makeSound()const = 0;
 		std::string getType()const;
 };
 

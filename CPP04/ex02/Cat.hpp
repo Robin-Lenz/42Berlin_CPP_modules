@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 15:59:49 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/11 17:27:49 by rpodack          ###   ########.fr       */
+/*   Created: 2024/03/11 15:59:58 by rpodack           #+#    #+#             */
+/*   Updated: 2024/03/11 17:27:42 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include <string>
-#include <iomanip>
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Animal
+class Cat : public AAnimal
 {
 	private:
-		/* data */
-
-	protected:
-		std::string type;
-
+		Brain *_CatBrain;
 	public:
-		Animal();
-		Animal(const Animal &a);
-		Animal(std::string type);
-		virtual ~Animal();
+		Cat();
+		Cat(const Cat &a);
+		~Cat();
+	
+		Cat &operator=(const Cat &a);
 
-		Animal &operator=(const Animal &a);
-		virtual void makeSound()const;
-		std::string getType()const;
+		void makeSound()const;
 };
+
+
 
 
 #endif
