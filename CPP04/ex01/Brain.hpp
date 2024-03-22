@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:41:02 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/19 18:41:03 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:26:20 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Brain
 		~Brain();
 
 		Brain &operator=(const Brain &a);
+		
 		std::string ideas[100];
 };
 

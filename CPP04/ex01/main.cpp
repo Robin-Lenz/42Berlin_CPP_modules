@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:00:09 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/11 17:05:28 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:31:40 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,5 @@ int main(){
 
 return 0;
 }
+
+//adressen printen um deep copy zu beweisen

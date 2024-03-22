@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:41:43 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/19 18:41:44 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:47:13 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &a);
 		WrongAnimal(std::string type);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		WrongAnimal &operator=(const WrongAnimal &a);
 		void makeSound()const;
