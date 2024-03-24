@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:25:20 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/20 15:54:12 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/03/24 18:45:50 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ Bureaucrat::Bureaucrat(/* args */)
 
 Bureaucrat::Bureaucrat(int grade){
 	std::cout << "Bureaucrat constructor called with arguement int" << std::endl;
-	try{
-		if (grade < 1 || grade > 150)
+	if (grade < 1){
+		throw GradeTooLowException("Grade too low");
 	}
+	else if (grade > 150){
+		throw GradeTooHighException("Grade too high");
+	}
+	
 }
 
 Bureaucrat::~Bureaucrat()

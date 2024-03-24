@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:59:44 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/11 18:39:16 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:34:25 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ AAnimal &AAnimal::operator=(const AAnimal &a){
 	return *this;
 }
 
-void AAnimal::makeSound()const{
-	std::cout << this->getType() << " Arrrgh !" << std::endl;
-}
+// void AAnimal::makeSound()const{
+// 	std::cout << this->getType() << " Arrrgh !" << std::endl;
+// }
 
 std::string AAnimal::getType()const{
 	return (this->type);
