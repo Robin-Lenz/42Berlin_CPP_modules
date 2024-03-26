@@ -15,19 +15,20 @@
 int main(){
 	/*test copy constructor*/
 	/*test << overload*/
-	Bureaucrat vogone;
-	Bureaucrat a(vogone);
+	Form vogone;
+	Form a(vogone);
 
 	std::cout << vogone;
-	std::cout << a;
+	std::cout << a << '\n';
 
-	// /*test grade too high*/
-	// try{
-	// 	Bureaucrat a(151);
-	// }
-	// catch(std::invalid_argument &e){
-	// 	std::cout << e.what() << std::endl;
-	// }
+	/*test grade too high*/
+	try{
+		Form b("Verwaltungsaufwandsentscheadigungszahlungsbeleg", 50, 70);
+		std::cout << b << '\n';
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 
 	// /*test grade to low*/
 	// try{
@@ -72,3 +73,6 @@ int main(){
 	// }
 	return 0;
 }
+
+//throw exceptions for form
+// beSigned und folgende

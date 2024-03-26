@@ -28,7 +28,7 @@ Bureaucrat::Bureaucrat() : _name("Ingo"), _grade(150)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &a) : _name(a._name), _grade(a._grade){
-	std::cout << "copyconstructor called" << std::endl;
+	std::cout << "Bureaucrat copyconstructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
