@@ -1,5 +1,13 @@
 #include "Bureaucrat.hpp"
 
+const char *Form::GradeTooLowException::what()const throw(){
+	return " Grade too low";
+}
+
+const char *Form::GradeTooHighException::what()const throw(){
+	return " Grade too high";
+}
+
 Form::Form() : _name("Wohnungsgeberbescheinigung") , _signed(false) , _gradeSign(100) , _gradeExec(5){
 	std::cout << "Form default constructor called" << std::endl;
 }
@@ -15,10 +23,6 @@ Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _grade
 Form::~Form()
 {
 	std::cout << "Form destructor called" << '\n';
-}
-
-const char *Form::GradeTooHighException::what(){
-	return "Grade too high";
 }
 
 Form &Form::operator=(const Form &a){
@@ -44,4 +48,10 @@ int Form::getGradeSign()const{
 
 int Form::getGradeExec()const{
 	return this->_gradeExec;
+}
+
+void Form::beSigned(const Bureaucrat &a){
+	if (a.getGrade() > this->getGradeSign())
+		throw Form::GradeTooLowException();
+	this->_signed = true;
 }

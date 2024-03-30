@@ -17,8 +17,8 @@ int main(){
 	
 	/*test copy constructor*/
 	/*test << overload*/
-	Form z;
-	Form a(z);
+	AForm z;
+	AForm a(z);
 
 	std::cout << vogone;
 	std::cout << a << '\n';
@@ -26,7 +26,7 @@ int main(){
 	/*test grade too low*/
 	try{
 														/*int gradeSign, int gradeExec*/
-		Form b("Verwaltungsaufwandsentscheadigungszahlungsbeleg", 50, 70);
+		AForm b("Verwaltungsaufwandsentscheadigungszahlungsbeleg", 50, 70);
 		std::cout << b << '\n';
 		vogone.signForm(b);
 	}

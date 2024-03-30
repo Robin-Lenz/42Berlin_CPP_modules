@@ -17,7 +17,7 @@
 #include "WrongCat.hpp"
 
 int main(){
-	// const Animal *Arr[5];
+	const Animal *Arr[5];
 
 	// Brain b;
 	// Brain c(b);
@@ -39,15 +39,15 @@ int main(){
 	meta->makeSound();
 
 	// z->makeSound();
-	// for (int counter = 0; counter < 5; counter++){
-	// 	if (counter % 2 == 0)
-	// 		Arr[counter] = new Cat();
-	// 	else
-	// 		Arr[counter] = new Dog();
-	// }
-	// for (int counter = 0; counter < 5; counter++){
-	// 	delete Arr[counter];
-	// }
+	for (int counter = 0; counter < 5; counter++){
+		if (counter % 2 == 0)
+			Arr[counter] = new Cat();
+		else
+			Arr[counter] = new Dog();
+	}
+	for (int counter = 0; counter < 5; counter++){
+		delete Arr[counter];
+	}
 	
 
 	delete meta;
@@ -57,5 +57,3 @@ int main(){
 
 return 0;
 }
-
-//adressen printen um deep copy zu beweisen

@@ -19,14 +19,13 @@
 class Brain
 {
 	private:
-		/* data */
+		std::string ideas[100];
 	public:
 		Brain(/* args */);
 		Brain(Brain &a);
 		~Brain();
 
 		Brain &operator=(const Brain &a);
-		std::string ideas[100];
 };
 
 #endif
