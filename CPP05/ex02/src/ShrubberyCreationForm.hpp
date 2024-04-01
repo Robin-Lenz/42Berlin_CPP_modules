@@ -14,8 +14,6 @@ class ShrubberyCreationForm : public AForm{
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &a);
-
-		// std::string getName() const;
 };
 
 #endif

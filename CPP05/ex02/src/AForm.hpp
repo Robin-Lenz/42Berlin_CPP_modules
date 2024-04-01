@@ -37,6 +37,7 @@ class AForm
 		int getGradeSign()const;
 		int getGradeExec()const;
 		void beSigned(const Bureaucrat &a);
+		virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &o, const AForm &a);
