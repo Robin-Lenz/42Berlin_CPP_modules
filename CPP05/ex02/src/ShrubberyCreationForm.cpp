@@ -35,3 +35,27 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	this->_target = a._target;
 	return *this;
 };
+
+void ShrubberyCreationForm::execute(const Bureaucrat &executor)const{
+	try{
+		if (this->getSigned() == false)
+			throw FormNotSigned();
+		if (executor.getGrade() > this->getGradeExec())
+			throw GradeTooLowException();
+	}
+	catch (std::exception &e){
+		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
+	}
+	std::ofstream outfile;
+	outfile.open((this->_target + "_shrubbery").c_str());
+	outfile << "        * \n"
+		"        ^        \n"
+		"       ^^^       \n"
+		"      ^^^o^      \n"
+		"     ^^^^^^^     \n"
+		"    ^^^^^^^^^    \n"
+		"   ^^o^^^^^^^^   \n"
+		"  ^^^^^^^^^^^^^  \n"
+		" ^^^^^^^^^^^o^^^ \n"
+		"        |        \n";
+}

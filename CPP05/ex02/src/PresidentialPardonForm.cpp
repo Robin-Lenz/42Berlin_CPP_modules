@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5){
 	std::cout << "PresidentialPardonForm default constructor called" << '\n';
@@ -35,3 +36,16 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	this->_target = a._target;
 	return *this;
 };
+
+void PresidentialPardonForm::execute(const Bureaucrat &executor)const{
+	try{
+		if (this->getSigned() == false)
+			throw FormNotSigned();
+		if (executor.getGrade() > this->getGradeExec())
+			throw GradeTooLowException();
+	}
+	catch (std::exception &e){
+		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
+	}
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << '\n';
+}

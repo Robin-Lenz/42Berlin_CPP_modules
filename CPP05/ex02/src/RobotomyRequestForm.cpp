@@ -35,3 +35,22 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &a
 	this->_target = a._target;
 	return *this;
 };
+
+void RobotomyRequestForm::execute(const Bureaucrat &executor)const{
+	try{
+		if (this->getSigned() == false)
+			throw FormNotSigned();
+		if (executor.getGrade() > this->getGradeExec())
+			throw GradeTooLowException();
+	}
+	catch (std::exception &e){
+		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
+	}
+	std::cout << "Brrrr Brr Brrrrrrrrr " << this->_target;
+	int FiftyFifty = rand() % 2;
+	if (FiftyFifty == 0)
+		std::cout << " has been robotomized !" << '\n';
+	else{
+		std::cout << "'s robotomisation failed tragically.. NEXT !" << '\n';
+	}
+}

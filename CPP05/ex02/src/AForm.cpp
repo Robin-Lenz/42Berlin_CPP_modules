@@ -8,6 +8,10 @@ const char *AForm::GradeTooHighException::what()const throw(){
 	return " Grade too high";
 }
 
+const char *AForm::FormNotSigned::what()const throw(){
+	return " Form not signed";
+}
+
 AForm::AForm() : _name("Wohnungsgeberbescheinigung") , _signed(false) , _gradeSign(100) , _gradeExec(5){
 	std::cout << "Form default constructor called" << std::endl;
 }
@@ -48,6 +52,10 @@ int AForm::getGradeSign()const{
 
 int AForm::getGradeExec()const{
 	return this->_gradeExec;
+}
+
+bool AForm::getSigned()const{
+	return this->_signed;
 }
 
 void AForm::beSigned(const Bureaucrat &a){

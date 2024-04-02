@@ -12,29 +12,19 @@
 
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(){
-		Bureaucrat vogone("vogone", 80);
+		Bureaucrat vogone("vogone", 120);
 	
 	/*test copy constructor*/
 	/*test << overload*/
-	AForm z;
-	AForm a(z);
+	// AForm z;
+	// AForm a(z);
 	RobotomyRequestForm c;
+	ShrubberyCreationForm d;
 
 	std::cout << vogone;
-	std::cout << a << '\n';
-
-	/*test grade too low*/
-	try{
-														/*int gradeSign, int gradeExec*/
-		AForm b("Verwaltungsaufwandsentscheadigungszahlungsbeleg", 50, 70);
-		std::cout << b << '\n';
-		vogone.signForm(b);
-	}
-	catch(std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
 
 	/*can vogone sign a RobotomyRequestForm ?*/
 	std::cout << vogone.getName();
@@ -45,6 +35,18 @@ int main(){
 	catch (std::exception &e){
 		std::cout << " couldn't sign " << c.getName() << " because " << e.what() << '\n';
 	}
+
+	/*can vogone sign a ShrubberyCreationForm ?*/
+	std::cout << vogone.getName();
+	try{
+		d.beSigned(vogone);	
+		std::cout << " signed " << d.getName() << '\n';
+	}
+	catch (std::exception &e){
+		std::cout << " couldn't sign " << d.getName() << " because " << e.what() << '\n';
+	}
+	d.execute(vogone);
+
 
 	
 	return 0;

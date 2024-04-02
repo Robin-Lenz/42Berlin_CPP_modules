@@ -2,6 +2,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <cstdlib> // For rand() and srand()
 
 class AForm;
 
@@ -16,6 +17,8 @@ class RobotomyRequestForm : public AForm{
 		~RobotomyRequestForm();
 
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &a);
+
+		void execute(const Bureaucrat &executor)const;
 
 };
 

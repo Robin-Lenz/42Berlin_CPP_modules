@@ -20,7 +20,7 @@ class AForm
 		virtual ~AForm();
 
 		AForm &operator=(const AForm &a);
-		
+
 	class GradeTooLowException : public std::exception
 	{
 		public:
@@ -30,12 +30,19 @@ class AForm
 	class GradeTooHighException : public std::exception
 	{
 		public:
+			virtual const char *what()const throw();
+	};
+
+	class FormNotSigned : public std::exception
+	{
+		public:
 			const char *what()const throw();
 	};
 
 		std::string getName()const;
 		int getGradeSign()const;
 		int getGradeExec()const;
+		bool getSigned()const;
 		void beSigned(const Bureaucrat &a);
 		virtual void execute(const Bureaucrat &executor) const = 0;
 };
