@@ -85,3 +85,4 @@ int ClapTrap::GetDamage(){
 std::string ClapTrap::GetName(){
 	return(this->_name);
 }
+

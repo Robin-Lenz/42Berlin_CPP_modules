@@ -32,7 +32,6 @@ int main(){
 
 	z->makeSound();
 
-
 	delete meta;
 	delete j;
 	delete i;
