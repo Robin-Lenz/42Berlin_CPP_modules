@@ -17,14 +17,19 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &a){
 	return *this;
 };
 
-void ScalarConverter::convert(const std::string &target){
+void ScalarConverter::convert(std::string &target){
 	if (target.length() == 0)
 		return;//throw except
 	try{
 		if (isChar(target) == 1){
-			std::cout << "char: " << atoi(target.c_str()) << '\n';
+			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
 		}
-		else if (isInt(target) == 1){
+		else{
+			std::cout << "char: Non displayable\n";
+		}
+
+
+		if (isInt(target) == 1){
 			std::cout << "int: " << atoi(target.c_str()) << '\n';
 		}
 		// else if (isFloat(target) == 1){

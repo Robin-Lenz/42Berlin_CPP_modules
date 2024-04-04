@@ -1,16 +1,18 @@
 #include "ScalarConverter.hpp"
 
-int main(){
-	ScalarConverter::convert("5");
+int main(int ac, char **av){
+	if (ac != 2){
+		std::cout << "enter one argment only\n";
+		return 1;
+	}
+	std::string a = av[1];
+	ScalarConverter::convert(a);
 	return 0;
 }
 
 bool isChar(const std::string &target){
-	if (target.length() != 1)
-		return 0;
-	if (isprint(target.c_str()[0])){//target[0] >= '0' && target[0] <= '9'
+	if (!(isprint(target.c_str()[0])))
 		return 1;
-	}
 	return 0;
 }
 

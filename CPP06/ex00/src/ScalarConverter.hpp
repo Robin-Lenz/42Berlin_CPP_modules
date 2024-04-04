@@ -16,7 +16,7 @@ class ScalarConverter {
 		ScalarConverter &operator=(const ScalarConverter &a);
 	
 	public:
-		static void convert(const std::string &target);
+		static void convert(std::string &target);
 
 };
 
