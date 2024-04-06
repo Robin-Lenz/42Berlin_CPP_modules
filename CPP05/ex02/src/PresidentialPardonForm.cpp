@@ -6,14 +6,14 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:47:49 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/30 19:57:13 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/06 19:13:52 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5){
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5), _target("42"){
 	std::cout << "PresidentialPardonForm default constructor called" << '\n';
 };
 

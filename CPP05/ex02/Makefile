@@ -22,6 +22,7 @@ $(NAME): $(OBJ_FILES)
 
 clean:
 	@rm -rf $(OBJ_DIR)
+	rm -rf *_shrubbery
 
 fclean: clean
 	@rm -f $(NAME)

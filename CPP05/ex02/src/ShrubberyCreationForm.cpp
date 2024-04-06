@@ -6,13 +6,13 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:53:24 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/30 19:53:43 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/06 19:15:28 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137), _target("42"){
 	std::cout << "ShrubberyCreationForm default constructor called" << '\n';
 };
 
@@ -44,7 +44,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor)const{
 			throw GradeTooLowException();
 	}
 	catch (std::exception &e){
-		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
+		std::cout << executor.getName() << " couldn't create shrubbery because: " << e.what() << '\n';
 	}
 	std::ofstream outfile;
 	outfile.open((this->_target + "_shrubbery").c_str());
@@ -58,4 +58,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor)const{
 		"  ^^^^^^^^^^^^^  \n"
 		" ^^^^^^^^^^^o^^^ \n"
 		"        |        \n";
+	std::cout << executor.getName() << " created shrubbery successfully\n";
 }

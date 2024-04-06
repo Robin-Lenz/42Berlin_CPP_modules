@@ -6,13 +6,13 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:52:18 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/30 19:57:36 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/06 19:14:30 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45){
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("42"){
 	std::cout << "RobotomyRequestForm default constructor called" << '\n';
 };
 
@@ -44,10 +44,17 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor)const{
 			throw GradeTooLowException();
 	}
 	catch (std::exception &e){
-		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
+		std::cout << executor.getName() << " couldn't execute this pardon because: " << e.what() << '\n';
+		return ;
 	}
 	std::cout << "Brrrr Brr Brrrrrrrrr " << this->_target;
-	int FiftyFifty = rand() % 2;
+	
+	srand(time(0));
+	int tmp = rand();
+	int FiftyFifty = tmp % 2;
+	std::cout << tmp << '\n';
+	std::cout << FiftyFifty << '\n';
+	
 	if (FiftyFifty == 0)
 		std::cout << " has been robotomized !" << '\n';
 	else{
