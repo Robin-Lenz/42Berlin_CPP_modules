@@ -7,6 +7,8 @@
 #include <cmath> //floor
 #include <cctype> // isprint
 
+#include <cstdio>
+
 class ScalarConverter {
 	private:
 		ScalarConverter();

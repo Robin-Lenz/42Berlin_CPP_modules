@@ -2,7 +2,7 @@
 
 int main(int ac, char **av){
 	if (ac != 2){
-		std::cout << "enter one argment only\n";
+		std::cout << "enter one argument\n";
 		return 1;
 	}
 	std::string a = av[1];
@@ -11,7 +11,11 @@ int main(int ac, char **av){
 }
 
 bool isChar(const std::string &target){
-	if (!(isprint(target.c_str()[0])))
+	//nanf ...
+	
+	if (target.length() != 1)
+		return 0;
+	if ((std::isprint(target[0]) || std::isalpha(target[0])))
 		return 1;
 	return 0;
 }

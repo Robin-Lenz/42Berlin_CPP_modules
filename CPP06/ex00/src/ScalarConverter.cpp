@@ -20,55 +20,25 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &a){
 void ScalarConverter::convert(std::string &target){
 	if (target.length() == 0)
 		return;//throw except
-	try{
-		if (isChar(target) == 1){
+	if (isInt(target) == 1){
+		/*print int*/
+		std::cout << "int: " << atoi(target.c_str()) << '\n';
+		
+		/*print char*/
+		if (std::isprint(target[0]) || std::isalpha(target[0]))
 			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
-		}
-		else{
+		else
 			std::cout << "char: Non displayable\n";
-		}
-
-
-		if (isInt(target) == 1){
-			std::cout << "int: " << atoi(target.c_str()) << '\n';
-		}
-		// else if (isFloat(target) == 1){
-
-		// }
+		
 	}
-	catch (std::exception &e){
-		std::cout << "catch\n";// don't forgett to write what()
+	else if (isChar(target) == 1){
+		std::cout << "char: " << target << '\n';
+		std::cout << "int: " << static_cast<int>(target[0]) << '\n';
+		std::cout << "float: " << static_cast<float>(target[0]) << ".0f" <<'\n';
+		std::cout << "double: " << static_cast<double>(target[0]) << ".0" <<'\n';
+
 	}
-	
-	// try{
-	// 	char c = atoi(target.c_str());
-	// 	std::cout << c << '\n';
-	// }
-	// catch (std::exception &e){
-	// 	std::cout << "catch\n";
-	// }
-
-	// try{
-	// 	int c = atoi(target.c_str());
-	// 	std::cout << c << '\n';
-	// }
-	// catch (std::exception &e){
-	// 	std::cout << "catch\n";
-	// }
-
-	// try{
-	// 	float c = atoi(target.c_str());
-	// 	std::cout << "float: " << c << (c == std::floor(c) ? ".0f" : "f") << std::endl;
-	// }
-	// catch (std::exception &e){
-	// 	std::cout << "catch\n";
-	// }
-
-	// try{
-	// 	double c = atoi(target.c_str());
-	// 	std::cout << c << '\n';
-	// }
-	// catch (std::exception &e){
-	// 	std::cout << "catch\n";
-	// }
+	else{
+		std::cout << "char: Non displayable\n";
+	}
 }
