@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/08 18:01:02 by rpodack           #+#    #+#             */
+/*   Updated: 2024/04/08 18:26:16 by rpodack          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(){
@@ -25,10 +37,18 @@ void ScalarConverter::convert(std::string &target){
 		std::cout << "int: " << atoi(target.c_str()) << '\n';
 		
 		/*print char*/
-		if (std::isprint(target[0]) || std::isalpha(target[0]))
+		char c = static_cast<char>(atoi(target.c_str()));
+		if (std::isprint(c) || std::isalpha(c))// just use isChar why not ?
 			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
 		else
 			std::cout << "char: Non displayable\n";
+		
+		/*print float*/
+		int i = atoi(target.c_str());
+		std::cout << "float: " << static_cast<float>(i) << ".0f" <<'\n';
+		
+		/*print double*/
+		std::cout << "double: " << static_cast<double>(i) << ".0" <<'\n';
 		
 	}
 	else if (isChar(target) == 1){
@@ -36,9 +56,9 @@ void ScalarConverter::convert(std::string &target){
 		std::cout << "int: " << static_cast<int>(target[0]) << '\n';
 		std::cout << "float: " << static_cast<float>(target[0]) << ".0f" <<'\n';
 		std::cout << "double: " << static_cast<double>(target[0]) << ".0" <<'\n';
-
 	}
 	else{
 		std::cout << "char: Non displayable\n";
+		// throw
 	}
 }
