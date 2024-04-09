@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:25:20 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/24 18:45:50 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/09 16:47:15 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int Bureaucrat::getGrade()const{
 
 void Bureaucrat::increment(){
 	if (_grade <= 1)
-		throw GradeTooHighException(" grade can't get lower that that");
+		throw GradeTooHighException(" grade can't get any higher");
 	this->_grade--;
 }
 
 void Bureaucrat::decrement(){
 	if (_grade >= 150)
-		throw GradeTooLowException(" grade can't get any higher");
+		throw GradeTooLowException(" grade can't get lower than that");
 	this->_grade++;
 }
 
