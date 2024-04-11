@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:25:23 by rpodack           #+#    #+#             */
-/*   Updated: 2024/03/24 18:57:26 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 16:55:29 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ class Bureaucrat
 		void decrement();
 
 		void signForm(AForm &form);
+
+		void execute(AForm const & form);
 };
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &a);

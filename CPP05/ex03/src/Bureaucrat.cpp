@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:25:20 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/09 16:47:31 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:44:34 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char *msg) : inva
 Bureaucrat::GradeTooLowException::GradeTooLowException() : invalid_argument("Default Exception"){}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(const char *msg) : invalid_argument(msg){}
-
-
 
 Bureaucrat::Bureaucrat() : _name("Ingo"), _grade(150)
 {
@@ -86,5 +84,15 @@ void Bureaucrat::signForm(AForm &form){
 	}
 	catch (std::exception &e){
 		std::cout << " couldn't sign " << form.getName() << " because " << e.what() << '\n';
+	}
+}
+
+void Bureaucrat::execute(AForm const & form){
+	try{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << '\n';
+	}
+	catch (std::exception &e){
+		std::cout << this->getName() << " can't execute " << form.getName() << e.what() << '\n';
 	}
 }

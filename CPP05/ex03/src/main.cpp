@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:25:26 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/09 19:42:30 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:43:39 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 int main(){
 	
+	Bureaucrat vogone("vogone", 5);
+	
 	Intern someRandomIntern;
 	AForm *rrf;
 	AForm *abc;
@@ -25,6 +27,10 @@ int main(){
 	rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
 	abc = someRandomIntern.makeForm("ShrubberyCreationForm", "Earth");
 	def = someRandomIntern.makeForm("PresidentialPardonForm", "Mars");
+
+	vogone.signForm(*rrf);
+	vogone.execute(*rrf);
+	
 
 	delete rrf;
 	delete abc;

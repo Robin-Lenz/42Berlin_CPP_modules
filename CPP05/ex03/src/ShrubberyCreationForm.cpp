@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:53:24 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/06 19:15:28 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:02:56 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,22 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 };
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor)const{
-	try{
+
 		if (this->getSigned() == false)
 			throw FormNotSigned();
 		if (executor.getGrade() > this->getGradeExec())
 			throw GradeTooLowException();
-	}
-	catch (std::exception &e){
-		std::cout << executor.getName() << " couldn't create shrubbery because: " << e.what() << '\n';
-	}
-	std::ofstream outfile;
-	outfile.open((this->_target + "_shrubbery").c_str());
-	outfile << "        * \n"
-		"        ^        \n"
-		"       ^^^       \n"
-		"      ^^^o^      \n"
-		"     ^^^^^^^     \n"
-		"    ^^^^^^^^^    \n"
-		"   ^^o^^^^^^^^   \n"
-		"  ^^^^^^^^^^^^^  \n"
-		" ^^^^^^^^^^^o^^^ \n"
-		"        |        \n";
-	std::cout << executor.getName() << " created shrubbery successfully\n";
+		std::ofstream outfile;
+		outfile.open((this->_target + "_shrubbery").c_str());
+		outfile << "        * \n"
+			"        ^        \n"
+			"       ^^^       \n"
+			"      ^^^o^      \n"
+			"     ^^^^^^^     \n"
+			"    ^^^^^^^^^    \n"
+			"   ^^o^^^^^^^^   \n"
+			"  ^^^^^^^^^^^^^  \n"
+			" ^^^^^^^^^^^o^^^ \n"
+			"        |        \n";
+		std::cout << executor.getName() << " created shrubbery successfully\n";
 }

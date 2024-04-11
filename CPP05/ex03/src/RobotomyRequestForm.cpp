@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:52:18 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/09 16:48:00 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:33:18 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &a
 };
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor)const{
-	try{
-		if (this->getSigned() == false)
-			throw FormNotSigned();
-		if (executor.getGrade() > this->getGradeExec())
-			throw GradeTooLowException();
-	}
-	catch (std::exception &e){
-		std::cout << executor.getName() << " couldn't execute this pardon because: " << e.what() << '\n';
-		return ;
-	}
+	if (this->getSigned() == false)
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLowException();
 	std::cout << "Brrrr Brr Brrrrrrrrr " << this->_target;
 	
 	srand(time(0));
@@ -56,6 +50,6 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor)const{
 	if (FiftyFifty == 0)
 		std::cout << " has been robotomized !" << '\n';
 	else{
-		std::cout << "'s robotomisation failed tragically.. NEXT !" << '\n';
+		std::cout << "'s robotomization failed tragically.. NEXT !" << '\n';
 	}
 }

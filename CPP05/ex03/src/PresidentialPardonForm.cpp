@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 19:47:49 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/06 19:13:52 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:06:26 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,9 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 };
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor)const{
-	try{
-		if (this->getSigned() == false)
-			throw FormNotSigned();
-		if (executor.getGrade() > this->getGradeExec())
-			throw GradeTooLowException();
-	}
-	catch (std::exception &e){
-		std::cout << executor.getName() << "couldn't execute this pardon because: " << e.what() << '\n';
-	}
+	if (this->getSigned() == false)
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLowException();
 	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << '\n';
 }
