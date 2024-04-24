@@ -19,17 +19,53 @@
 int main(){
 	
 	Bureaucrat vogone("vogone", 5);
-	
+
 	Intern someRandomIntern;
 	AForm *rrf;
 	AForm *abc;
 	AForm *def;
-	rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
-	abc = someRandomIntern.makeForm("ShrubberyCreationForm", "Earth");
-	def = someRandomIntern.makeForm("PresidentialPardonForm", "Mars");
+
+	try
+	{
+		rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		return (-1);
+	}
+
+	try
+	{
+		abc = someRandomIntern.makeForm("ShrubberyCreationForm", "Earth");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		delete rrf;
+		return (-1);
+	}
+
+	try
+	{
+		def = someRandomIntern.makeForm("PresidentialPardonForm", "Mars");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		delete rrf;
+		delete abc;
+		return (-1);
+	}
 
 	vogone.signForm(*rrf);
 	vogone.execute(*rrf);
+
+	vogone.signForm(*abc);
+	vogone.execute(*abc);
+
+	vogone.signForm(*def);
+	vogone.execute(*def);
 	
 
 	delete rrf;

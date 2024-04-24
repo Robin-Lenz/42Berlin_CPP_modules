@@ -18,7 +18,12 @@ int main(int ac, char **av){
 		return 1;
 	}
 	std::string a = av[1];
-	ScalarConverter::convert(a);
+	try{
+		ScalarConverter::convert(a);
+	}
+	catch (const std::exception &e){
+		std::cerr << e.what();
+	}
 	return 0;
 }
 
@@ -41,4 +46,16 @@ bool isInt(const std::string &target){
 		i++;
 	}
 	return 1;
+}
+
+bool isFloat(const std::string &target){
+	if (target[target.length() - 1] != 'f')
+		return 0;
+	return 1;
+}
+
+bool isDouble(const std::string &target){
+	if (target.find('.'))
+		return 1;
+	return 0;
 }

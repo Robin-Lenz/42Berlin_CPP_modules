@@ -18,8 +18,8 @@
 #include <cstdlib> // atoi
 #include <cmath> //floor
 #include <cctype> // isprint
-
-#include <cstdio>
+#include <sstream>
+// #include <cstdio>
 
 class ScalarConverter {
 	private:
@@ -32,9 +32,15 @@ class ScalarConverter {
 	public:
 		static void convert(std::string &target);
 
+	class InvalidEntry : public std::exception{
+		const char *what() const throw();
+	};
+
 };
 
 bool isChar(const std::string &target);
 bool isInt(const std::string &target);
+bool isFloat(const std::string &target);
+bool isDouble(const std::string &target);
 
 #endif

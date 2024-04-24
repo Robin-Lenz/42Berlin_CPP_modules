@@ -27,6 +27,11 @@ class Intern
 		Intern &operator=(const Intern &a);
 	
 		AForm *makeForm(std::string name, std::string target);
+		class FormDoesntExist : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
 };
 
 

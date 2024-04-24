@@ -15,6 +15,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+
+const char *Intern::FormDoesntExist::what()const throw(){
+	return (" doesn't exist");
+}
+
 Intern::Intern()
 {
 	std::cout << "Intern Default Constructor called" << std::endl;
@@ -68,5 +73,6 @@ AForm *Intern::makeForm(std::string name, std::string target){
 			return (forms[i](target));
 		}
 	}
-	return NULL;
+	std::cout << name;
+	throw Intern::FormDoesntExist();
 }

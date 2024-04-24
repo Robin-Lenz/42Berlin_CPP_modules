@@ -1,6 +1,6 @@
 NAME := Bureaucrat
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -I .
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -I .
 
 SRC_DIR := src
 OBJ_DIR := obj
@@ -22,7 +22,7 @@ $(NAME): $(OBJ_FILES)
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	rm -rf *_shrubbery
+	@rm -rf *_shrubbery
 
 fclean: clean
 	@rm -f $(NAME)
