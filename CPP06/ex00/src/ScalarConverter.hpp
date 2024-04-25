@@ -36,11 +36,16 @@ class ScalarConverter {
 		const char *what() const throw();
 	};
 
+	class Impossible : public std::exception{
+		const char *what() const throw();
+	};
+
 };
 
 bool isChar(const std::string &target);
 bool isInt(const std::string &target);
 bool isFloat(const std::string &target);
 bool isDouble(const std::string &target);
+bool isSpecial(std::string const &val);
 
 #endif

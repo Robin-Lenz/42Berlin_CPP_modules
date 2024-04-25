@@ -12,6 +12,10 @@
 
 #include "ScalarConverter.hpp"
 
+const char *ScalarConverter::Impossible::what() const throw(){
+	return ("Impossible to convert\n");
+}
+
 const char *ScalarConverter::InvalidEntry::what() const throw(){
 	return ("Invalid entry\n");
 }
@@ -36,20 +40,41 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &a){
 void ScalarConverter::convert(std::string &target){
 	if (target.length() == 0)
 		throw InvalidEntry();
-	if (isInt(target) == 1){
-		
+	if (isSpecial(target)){
+		std::cout << "is special\n" << target << '\n';/////////
+
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: ";
+		if (target == "nanf" || target == "-inff" || target == "+inff"){
+			std::cout << target << '\n';
+		}
+		else{
+			std::cout << target << "f" << '\n';
+		}
+		std::cout << "double: ";
+		if (target == "nanf"){
+			std::cout << "nan" << '\n';
+		}
+		else{
+			std::cout << target << '\n';
+		}
+	}
+	else if (isInt(target) == 1){
+		std::cout << "is int\n";
+		int i = atoi(target.c_str());
+
 		/*print char*/
-		char c = static_cast<char>(atoi(target.c_str()));
-		if (std::isprint(c) || std::isalpha(c))// just use isChar why not ? -> 2 digits
-			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
+		char c = static_cast<char>(i);
+		if (std::isprint(c) || std::isalpha(c))
+			std::cout << "char: " << c << '\n';
 		else
 			std::cout << "char: Non displayable\n";
 
 		/*print int*/
-		std::cout << "int: " << atoi(target.c_str()) << '\n';
+		std::cout << "int: " << i << '\n';
 
 		/*print float*/
-		int i = atoi(target.c_str());
 		std::cout << "float: " << static_cast<float>(i) << ".0f" <<'\n';
 		
 		/*print double*/
@@ -69,16 +94,16 @@ void ScalarConverter::convert(std::string &target){
 		
 		/*print char*/
 		char c = static_cast<char>(i);
-		if (std::isprint(c) || std::isalpha(c))// just use isChar why not ? -> 2 digits
-			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
+		if (std::isprint(c) || std::isalpha(c))
+			std::cout << "char: " << c << '\n';
 		else
 			std::cout << "char: Non displayable\n";
 
 		/*print int*/
-		std::cout << "int: " << atoi(target.c_str()) << '\n';
+		std::cout << "int: " << static_cast<int>(i) << '\n';
 
 		/*print float*/
-		std::cout << "float: " << target << '\n';
+		std::cout << "float: " << i << "f" << '\n';
 
 		/*print double*/
 		if (i - static_cast<int>(i) == 0)
@@ -96,28 +121,27 @@ void ScalarConverter::convert(std::string &target){
 		
 		/*print char*/
 		char c = static_cast<char>(i);
-		if (std::isprint(c) || std::isalpha(c))// just use isChar why not ? -> 2 digits
-			std::cout << "char: " << static_cast<char>(atoi(target.c_str())) << '\n';
+		if (std::isprint(c) || std::isalpha(c))
+			std::cout << "char: " << static_cast<char>(i) << '\n';
 		else
 			std::cout << "char: Non displayable\n";
 
 		/*print int*/
-		std::cout << "int: " << atoi(target.c_str()) << '\n';
+		std::cout << "int: " << static_cast<int>(i) << '\n';
 
 		/*print float*/
-		std::cout << "float: " << target << "f" << '\n';
+		std::cout << "float: " << static_cast<float>(i) << "f" << '\n';
 
 		/*print double*/
 		if (i - static_cast<int>(i) == 0)
-			std::cout << "double: " << static_cast<double>(i) << ".0" << '\n';
+			std::cout << "double: " << i << ".0" << '\n';
 		else
 		{
-			std::cout << "double: " << static_cast<double>(i) << '\n';
+			std::cout << "double: " << i << '\n';
 		}
 	}
 	else{
-		std::cout << "char: Non displayable\n";
-		// throw
+		throw Impossible();
 	}
 }
 

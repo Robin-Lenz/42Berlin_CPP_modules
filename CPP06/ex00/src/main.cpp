@@ -14,8 +14,7 @@
 
 int main(int ac, char **av){
 	if (ac != 2){
-		std::cout << "enter one argument\n";
-		return 1;
+		throw ScalarConverter::InvalidEntry();
 	}
 	std::string a = av[1];
 	try{
@@ -28,8 +27,6 @@ int main(int ac, char **av){
 }
 
 bool isChar(const std::string &target){
-	//nanf ...
-	
 	if (target.length() != 1)
 		return 0;
 	if ((std::isprint(target[0]) || std::isalpha(target[0])))
@@ -55,7 +52,14 @@ bool isFloat(const std::string &target){
 }
 
 bool isDouble(const std::string &target){
-	if (target.find('.'))
+	
+	// std::cout << target.find('.');
+	if (target.find('.') && target.find('.') != std::string::npos)
 		return 1;
 	return 0;
+}
+
+bool isSpecial(std::string const &val)
+{
+	return (val == "nan" || val == "nanf" || val == "-inff" || val == "+inff" || val == "-inf" || val == "+inf");
 }
