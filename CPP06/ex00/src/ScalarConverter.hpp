@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:01:07 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/08 18:01:08 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:38:04 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include <cmath> //floor
 #include <cctype> // isprint
 #include <sstream>
-// #include <cstdio>
 
 class ScalarConverter {
 	private:
@@ -47,5 +46,6 @@ bool isInt(const std::string &target);
 bool isFloat(const std::string &target);
 bool isDouble(const std::string &target);
 bool isSpecial(std::string const &val);
+void HandleChar(std::string &target);
 
 #endif

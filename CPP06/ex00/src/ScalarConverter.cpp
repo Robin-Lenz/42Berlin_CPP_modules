@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:01:02 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/08 18:26:16 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:39:41 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ScalarConverter::convert(std::string &target){
 	if (target.length() == 0)
 		throw InvalidEntry();
 	if (isSpecial(target)){
-		std::cout << "is special\n" << target << '\n';/////////
+		std::cout << "is special\n";
 
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -66,7 +66,9 @@ void ScalarConverter::convert(std::string &target){
 
 		/*print char*/
 		char c = static_cast<char>(i);
-		if (std::isprint(c) || std::isalpha(c))
+		if (i < 0 || i > 127)
+			std::cout << "char: impossible\n";
+		else if (std::isprint(c) || std::isalpha(c))
 			std::cout << "char: " << c << '\n';
 		else
 			std::cout << "char: Non displayable\n";
@@ -82,19 +84,20 @@ void ScalarConverter::convert(std::string &target){
 		
 	}
 	else if (isChar(target) == 1){
-		std::cout << "char: " << target << '\n';
-		std::cout << "int: " << static_cast<int>(target[0]) << '\n';
-		std::cout << "float: " << static_cast<float>(target[0]) << ".0f" <<'\n';
-		std::cout << "double: " << static_cast<double>(target[0]) << ".0" <<'\n';
+		std::cout << "is char\n";
+		HandleChar(target);
 	}
 	else if (isFloat(target) == 1){
 		float i;
 		std::istringstream iss(target);
 		iss >> i;
-		
+		std::cout << "is Float\n";
+
 		/*print char*/
 		char c = static_cast<char>(i);
-		if (std::isprint(c) || std::isalpha(c))
+		if (i < 0 || i > 127)
+			std::cout << "char: impossible\n";
+		else if (std::isprint(c) || std::isalpha(c))
 			std::cout << "char: " << c << '\n';
 		else
 			std::cout << "char: Non displayable\n";
@@ -119,9 +122,13 @@ void ScalarConverter::convert(std::string &target){
 		std::istringstream iss(target);
 		iss >> i;
 		
+		std::cout << "is double \n";
+		
 		/*print char*/
 		char c = static_cast<char>(i);
-		if (std::isprint(c) || std::isalpha(c))
+		if (i < 0 || i > 127)
+			std::cout << "char: impossible\n";
+		else if (std::isprint(c) || std::isalpha(c))
 			std::cout << "char: " << static_cast<char>(i) << '\n';
 		else
 			std::cout << "char: Non displayable\n";

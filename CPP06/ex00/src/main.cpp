@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:00:58 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/08 18:24:41 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:37:29 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,19 @@ bool isFloat(const std::string &target){
 }
 
 bool isDouble(const std::string &target){
-	
-	// std::cout << target.find('.');
-	if (target.find('.') && target.find('.') != std::string::npos)
+	size_t pos = target.find('.');
+	if (pos && pos != std::string::npos)
 		return 1;
 	return 0;
 }
 
-bool isSpecial(std::string const &val)
-{
+bool isSpecial(std::string const &val){
 	return (val == "nan" || val == "nanf" || val == "-inff" || val == "+inff" || val == "-inf" || val == "+inf");
+}
+
+void HandleChar(std::string &target){
+	std::cout << "char: " << target << '\n';
+	std::cout << "int: " << static_cast<int>(target[0]) << '\n';
+	std::cout << "float: " << static_cast<float>(target[0]) << ".0f" <<'\n';
+	std::cout << "double: " << static_cast<double>(target[0]) << ".0" <<'\n';
 }
