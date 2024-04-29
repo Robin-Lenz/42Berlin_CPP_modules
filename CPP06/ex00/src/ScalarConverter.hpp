@@ -19,6 +19,7 @@
 #include <cmath> //floor
 #include <cctype> // isprint
 #include <sstream>
+#include <limits>
 
 class ScalarConverter {
 	private:
@@ -41,16 +42,17 @@ class ScalarConverter {
 
 };
 
+bool isSpecial(std::string const &val);
+bool isMixed(std::string const &target);
 bool isChar(const std::string &target);
 bool isInt(const std::string &target);
 bool isFloat(const std::string &target);
 bool isDouble(const std::string &target);
-bool isSpecial(std::string const &val);
 
+void HandleInt(std::string &target, double d_err);
 void HandleChar(std::string &target);
-void HandleInt(std::string &target);
-void HandleFloat(std::string &target);
-void HandleDouble(std::string &target);
+void HandleFloat(std::string &target, double d_err);
+void HandleDouble(std::string &target, double d_err);
 void HandleSpecial(std::string &target);
 
 

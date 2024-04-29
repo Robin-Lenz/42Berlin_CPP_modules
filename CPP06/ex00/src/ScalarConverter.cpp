@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include "Helper.hpp"
 
 const char *ScalarConverter::Impossible::what() const throw(){
 	return ("Impossible to convert\n");
@@ -38,30 +39,36 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &a){
 };
 
 void ScalarConverter::convert(std::string &target){
+	double d_err;
+	std::istringstream iss(target);
+	iss >> d_err;
+	
 	if (target.length() == 0)
 		throw InvalidEntry();
+	if (isMixed(target) == 1){
+		throw Impossible();
+	}
 	if (isSpecial(target)){
 		std::cout << "is special\n";
 		HandleSpecial(target);
 	}
 	else if (isInt(target) == 1){
 		std::cout << "is int\n";
-		HandleInt(target);
+			HandleInt(target, d_err);
 	}
 	else if (isChar(target) == 1){
 		std::cout << "is char\n";
-		HandleChar(target);
+			HandleChar(target);
 	}
 	else if (isFloat(target) == 1){
 		std::cout << "is Float\n";
-		HandleFloat(target);
+		HandleFloat(target, d_err);
 	}
 	else if (isDouble(target) == 1){
 		std::cout << "is double \n";
-		HandleDouble(target);
+		HandleDouble(target, d_err);
 	}
 	else{
 		throw Impossible();
 	}
 }
-
