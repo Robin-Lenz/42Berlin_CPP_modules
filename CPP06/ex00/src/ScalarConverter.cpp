@@ -42,110 +42,23 @@ void ScalarConverter::convert(std::string &target){
 		throw InvalidEntry();
 	if (isSpecial(target)){
 		std::cout << "is special\n";
-
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: ";
-		if (target == "nanf" || target == "-inff" || target == "+inff"){
-			std::cout << target << '\n';
-		}
-		else{
-			std::cout << target << "f" << '\n';
-		}
-		std::cout << "double: ";
-		if (target == "nanf"){
-			std::cout << "nan" << '\n';
-		}
-		else{
-			std::cout << target << '\n';
-		}
+		HandleSpecial(target);
 	}
 	else if (isInt(target) == 1){
 		std::cout << "is int\n";
-		int i = atoi(target.c_str());
-
-		/*print char*/
-		char c = static_cast<char>(i);
-		if (i < 0 || i > 127)
-			std::cout << "char: impossible\n";
-		else if (std::isprint(c) || std::isalpha(c))
-			std::cout << "char: " << c << '\n';
-		else
-			std::cout << "char: Non displayable\n";
-
-		/*print int*/
-		std::cout << "int: " << i << '\n';
-
-		/*print float*/
-		std::cout << "float: " << static_cast<float>(i) << ".0f" <<'\n';
-		
-		/*print double*/
-		std::cout << "double: " << static_cast<double>(i) << ".0" <<'\n';
-		
+		HandleInt(target);
 	}
 	else if (isChar(target) == 1){
 		std::cout << "is char\n";
 		HandleChar(target);
 	}
 	else if (isFloat(target) == 1){
-		float i;
-		std::istringstream iss(target);
-		iss >> i;
 		std::cout << "is Float\n";
-
-		/*print char*/
-		char c = static_cast<char>(i);
-		if (i < 0 || i > 127)
-			std::cout << "char: impossible\n";
-		else if (std::isprint(c) || std::isalpha(c))
-			std::cout << "char: " << c << '\n';
-		else
-			std::cout << "char: Non displayable\n";
-
-		/*print int*/
-		std::cout << "int: " << static_cast<int>(i) << '\n';
-
-		/*print float*/
-		std::cout << "float: " << i << "f" << '\n';
-
-		/*print double*/
-		if (i - static_cast<int>(i) == 0)
-			std::cout << "double: " << static_cast<double>(i) << ".0" << '\n';
-		else
-		{
-			std::cout << "double: " << static_cast<double>(i) << '\n';
-		}
-		
+		HandleFloat(target);
 	}
 	else if (isDouble(target) == 1){
-		double i;
-		std::istringstream iss(target);
-		iss >> i;
-		
 		std::cout << "is double \n";
-		
-		/*print char*/
-		char c = static_cast<char>(i);
-		if (i < 0 || i > 127)
-			std::cout << "char: impossible\n";
-		else if (std::isprint(c) || std::isalpha(c))
-			std::cout << "char: " << static_cast<char>(i) << '\n';
-		else
-			std::cout << "char: Non displayable\n";
-
-		/*print int*/
-		std::cout << "int: " << static_cast<int>(i) << '\n';
-
-		/*print float*/
-		std::cout << "float: " << static_cast<float>(i) << "f" << '\n';
-
-		/*print double*/
-		if (i - static_cast<int>(i) == 0)
-			std::cout << "double: " << i << ".0" << '\n';
-		else
-		{
-			std::cout << "double: " << i << '\n';
-		}
+		HandleDouble(target);
 	}
 	else{
 		throw Impossible();

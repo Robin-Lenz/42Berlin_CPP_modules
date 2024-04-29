@@ -46,6 +46,12 @@ bool isInt(const std::string &target);
 bool isFloat(const std::string &target);
 bool isDouble(const std::string &target);
 bool isSpecial(std::string const &val);
+
 void HandleChar(std::string &target);
+void HandleInt(std::string &target);
+void HandleFloat(std::string &target);
+void HandleDouble(std::string &target);
+void HandleSpecial(std::string &target);
+
 
 #endif
