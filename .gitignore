@@ -16,3 +16,6 @@
 
 # Ignore .vscode extensions folder
 .vscode/extensions/
+
+# Ignore .vscode settingsconfiguration files
+.vscode/settings.json

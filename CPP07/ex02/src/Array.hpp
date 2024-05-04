@@ -4,6 +4,10 @@
 #include <cstddef>// NULL
 #include <string>// exception
 #include <iostream>//cout
+#include <time.h>
+# include <cstdlib>
+#include <ostream>
+// #include <math>
 
 
 template <typename T>
@@ -19,6 +23,7 @@ class Array {
 		~Array();
 
 		Array<T> &operator=(const Array &a);
+		T &operator[](const int a);
 
 		class OutOfBound : public std::exception {
 			public:
@@ -27,9 +32,11 @@ class Array {
 		
 		unsigned int size(void);
 
-		// std::string getName() const;
+		T &getVal(int i)const;
+		int getSize()const;
 };
 
-// # include "Array.cpp"
+template <typename T>
+std::ostream &operator<<(std::ostream &o, const Array<T> &a);
 
 #endif
