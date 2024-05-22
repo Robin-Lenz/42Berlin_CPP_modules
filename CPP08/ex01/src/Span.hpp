@@ -30,11 +30,11 @@ class Span {
 			public:
 				const char *what() const throw();
 		};
-		
 
 		void addNumber(unsigned int val);
 		int shortestSpan();
 		int longestSpan();
+		void addManyNumbers(unsigned int val1, unsigned int val2);
 };
 
 #endif

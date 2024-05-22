@@ -37,6 +37,17 @@ void Span::addNumber(unsigned int val){
 		throw MaxNumReached();
 	}
 }
+void Span::addManyNumbers(unsigned int val1, unsigned int val2){
+	while (val1 != val2)
+	{
+		addNumber(val1);
+		if (val1 < val2)
+			val1++;
+		if (val1 > val2)
+			val1--;
+	}
+	addNumber(val2);
+}
 
 int Span::shortestSpan(){
 	size_t len = _ls.size();

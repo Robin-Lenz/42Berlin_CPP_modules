@@ -5,12 +5,16 @@ int main(){
 	Span sp = Span(len);
 	try
 	{
-		srand(static_cast<unsigned int>(time(NULL)));
-		for (int i = 0; i < len; i++)
-		{
-			int random = rand() % 100;
-			sp.addNumber(random);
-		}
+		sp.addManyNumbers(5, 150000);
+
+
+		// srand(static_cast<unsigned int>(time(NULL)));
+		// for (int i = 0; i < len; i++)
+		// {
+		// 	int random = rand() % 100;
+		// 	sp.addNumber(random);
+		// }
+
 		// sp.addNumber(3);
 		// sp.addNumber(17);
 		// sp.addNumber(9);
