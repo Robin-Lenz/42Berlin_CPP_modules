@@ -6,7 +6,7 @@
 /*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:00:58 by rpodack           #+#    #+#             */
-/*   Updated: 2024/04/26 18:37:29 by rpodack          ###   ########.fr       */
+/*   Updated: 2024/05/06 19:25:27 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int main(int ac, char **av){
 	if (ac != 2){
-		throw ScalarConverter::InvalidEntry();
+		std::cerr << "Invalid entry\n";
+		return (1);
 	}
 	std::string a = av[1];
 	try{
@@ -132,15 +133,10 @@ void HandleDouble(std::string &target, double d_err){
 	std::istringstream iss(target);
 	iss >> i;
 
-	if (i == std::numeric_limits<double>::infinity() || i  == -std::numeric_limits<double>::infinity()){
-		throw ScalarConverter::Impossible();
-	}
-	else {
 		PrintChar(i);
 		PrintInt(static_cast<int>(i), d_err);
 		PrintFloat(static_cast<float>(i), d_err);
 		PrintDouble(i);
-	}
 }
 
 void HandleSpecial(std::string &target){

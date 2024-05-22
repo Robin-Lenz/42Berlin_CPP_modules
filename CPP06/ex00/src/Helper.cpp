@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Helper.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/06 19:06:54 by rpodack           #+#    #+#             */
+/*   Updated: 2024/05/06 19:25:05 by rpodack          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Helper.hpp"
 #include "ScalarConverter.hpp"
 
@@ -22,16 +34,11 @@ void PrintInt(int i, double d_err){
 }
 
 void PrintDouble(double i){
-	if (i >= std::numeric_limits<double>::min() || i  <= std::numeric_limits<double>::max()){
-		std::cout << "double: impossible\n";
-	}
-	else{
 		if (i - static_cast<int>(i) == 0)
 			std::cout << "double: " << static_cast<double>(i) << ".0" << '\n';
 		else{
 			std::cout << "double: " << static_cast<double>(i) << '\n';
 		}
-	}
 }
 
 void PrintChar(int i){

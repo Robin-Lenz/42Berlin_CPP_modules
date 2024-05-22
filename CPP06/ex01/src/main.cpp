@@ -18,6 +18,8 @@ int main(){
 		std::cerr << "Serialization and deserialization failed!" << std::endl;
 	}
 
+	std::cout << data.value << '\n';
+
 
 	return 0;
 }
