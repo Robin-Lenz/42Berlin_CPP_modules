@@ -20,17 +20,16 @@ int main(int ac, char **av){
 	{
 		std::stringstream inputlinestream(inputline);
 		if (std::getline(inputlinestream, inputdate, '|') && inputlinestream >> inputvalue){
-			std::cout << inputdate << inputvalue << '\n';
 			try
 			{
 				validateinputline(inputdate);
+				calcExchange(inputdate, inputvalue, b);
 				// make actual calculation here
 			}
 			catch(const std::exception& e)
 			{
 				std::cerr << e.what() << '\n';
 			}
-			
 		}
 		else{
 			std::cerr << "bad input\n";
@@ -39,7 +38,7 @@ int main(int ac, char **av){
 	return (0);
 }
 
-int validateinputline(std::string inputdate){
+int validateinputline(std::string inputdate){// what about max int , negative numbers -> split up into two functions
 	std::string year, month, day;
 	int y, m, d;
 	std::stringstream stream;
@@ -54,17 +53,24 @@ int validateinputline(std::string inputdate){
 	std::stringstream sm;
 	sm << month;
 	if (!(sm >> m && month.length() == 2)){// innerhalb der spanne die von der DB abgedeckt ist
-		std::cout << "check month validation\n";
-		std::cout << month;
+		// throw here
+		// std::cout << month;
 	}
 	std::getline(stream, day);
 	std::stringstream sd;
 	sd << day;
 	if (!(sd >> d && day.length() == 2)){// innerhalb der spanne die von der DB abgedeckt ist
-		std::cout << "check day validation\n";
-		std::cout << day;
+		// throw here
+		// std::cout << day;
 	}
 
 	return (0);
 }
 
+void calcExchange(std::string inputdate, float inputvalue, BitcoinExchange b){
+	(void)inputdate;
+	(void)inputvalue;
+	(void)b;
+	
+	// how to access data in a map actually
+}

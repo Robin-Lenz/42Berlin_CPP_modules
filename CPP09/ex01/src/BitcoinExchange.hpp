@@ -19,10 +19,10 @@ class BitcoinExchange {
 
 		BitcoinExchange &operator=(const BitcoinExchange &a);
 
-		// void checkLine(const std::string &line);
 };
 
 int validateinputline(std::string inputdate);
-// int validateinputdate(std::string inputdate);
+
+void calcExchange(std::string inputdate, float inputvalue, BitcoinExchange b);
 
 #endif
