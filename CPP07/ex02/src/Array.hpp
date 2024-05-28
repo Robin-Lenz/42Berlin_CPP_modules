@@ -18,7 +18,7 @@ class Array {
 
 	public:
 		Array();
-		Array(unsigned int value);
+		Array(int value);
 		Array(const Array &a);
 		~Array();
 

@@ -6,6 +6,7 @@
 
 int main(){
 	Array<int> numbers(MAX_VAL);
+	Array<int> number(MAX_VAL);
 	Array<char> letters(MAX_VAL);
 	Array<int> test;
 	Array<std::string> phrases(MAX_VAL);
@@ -15,6 +16,12 @@ int main(){
 	{
 		const int value = rand() / pow(10, 8);
 		numbers[i] = value;
+	}
+
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand() / pow(10, 8);
+		number[i] = value;
 	}
 
 	char letter = 'a';
@@ -30,9 +37,19 @@ int main(){
 		phrases[i] = phrase;
 		phrase.append("e");
 	}
+	numbers = number;
+
+
 
 	Array<int> clonedArrayNumbers(numbers);
 	Array<char> clonedArrayLetters = letters;
+
+	// Array<int> clonedArrayNumbers;
+	// Array<char> clonedArrayLetters;
+
+	// clonedArrayNumbers = numbers;
+	// clonedArrayLetters = letters;
+
 
 	std::cout << numbers << std::endl;
 	std::cout << letters << std::endl;
