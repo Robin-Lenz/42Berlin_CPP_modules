@@ -22,6 +22,8 @@ Array<T>::Array(int value) : _arr(new T[value]), _size(value){
 
 template <typename T>
 Array<T>::Array(const Array &a){
+	this->_arr = NULL;
+	this->_size = 0;
 	*this = a;
 }
 
@@ -29,7 +31,7 @@ template <typename T>
 Array<T> &Array<T>::operator=(const Array &a){
 	if (this != &a)
 	{
-		// delete [] this->_arr;
+		delete [] this->_arr;
 		this->_arr = new T[a._size];
 		for (int i = 0; i < a._size; i++)
 			this->_arr[i] = a._arr[i];

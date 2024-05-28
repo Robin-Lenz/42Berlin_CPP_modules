@@ -39,17 +39,8 @@ int main(){
 	}
 	numbers = number;
 
-
-
 	Array<int> clonedArrayNumbers(numbers);
 	Array<char> clonedArrayLetters = letters;
-
-	// Array<int> clonedArrayNumbers;
-	// Array<char> clonedArrayLetters;
-
-	// clonedArrayNumbers = numbers;
-	// clonedArrayLetters = letters;
-
 
 	std::cout << numbers << std::endl;
 	std::cout << letters << std::endl;
