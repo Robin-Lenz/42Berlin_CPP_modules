@@ -17,7 +17,7 @@ int main(){
 	Span sp = Span(len);
 	try
 	{
-		sp.addManyNumbers(5, 150000);
+		// sp.addManyNumbers(5, 150000);
 
 
 		// srand(static_cast<unsigned int>(time(NULL)));
@@ -27,8 +27,8 @@ int main(){
 		// 	sp.addNumber(random);
 		// }
 
-		// sp.addNumber(3);
-		// sp.addNumber(17);
+		sp.addNumber(-2147483646);
+		sp.addNumber(2147483646);
 		// sp.addNumber(9);
 		// sp.addNumber(11);
 	}

@@ -28,9 +28,12 @@ Array<T>::Array(const Array &a){
 template <typename T>
 Array<T> &Array<T>::operator=(const Array &a){
 	int len = a._size;
-	_arr = new T[len];
-	for (int i = 0; i < len; i++){
-		this->_arr[i] = a._arr[i];
+	if (len > 0){
+		_arr = new T[len];
+		for (int i = 0; i < len; i++){
+			this->_arr[i] = a._arr[i];
+		}
+		this->_size = a._size;
 	}
 	return *this;
 }
@@ -45,9 +48,12 @@ T &Array<T>::operator[](const int a){
 
 template <typename T>
 std::ostream &operator<<(std::ostream &o, const Array<T> &arr){
-	for (int i = 0; i < arr.getSize(); i++)
-	{
-		o << arr.getVal(i) << " ";
+	if (arr.getSize() > 0){
+
+		for (int i = 0; i < arr.getSize(); i++)
+		{
+			o << arr.getVal(i) << " ";
+		}
 	}
 	return o;
 }

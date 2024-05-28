@@ -20,10 +20,11 @@ int main(int ac, char **av){
 	{
 		std::stringstream inputlinestream(inputline);
 		if (std::getline(inputlinestream, inputdate, '|') && inputlinestream >> inputvalue){
+			inputdate = trim(inputdate);
 			try
 			{
-				validateinputline(inputdate);
-				calcExchange(inputdate, inputvalue, b);
+				validateinputline(inputdate, inputvalue);
+				b.calcExchange(inputdate, inputvalue);
 				// make actual calculation here
 			}
 			catch(const std::exception& e)
@@ -38,7 +39,7 @@ int main(int ac, char **av){
 	return (0);
 }
 
-int validateinputline(std::string inputdate){// what about max int , negative numbers -> split up into two functions
+int validateinputline(std::string inputdate, float inputvalue){// what about max int , negative numbers -> split up into two functions
 	std::string year, month, day;
 	int y, m, d;
 	std::stringstream stream;
@@ -47,30 +48,55 @@ int validateinputline(std::string inputdate){// what about max int , negative nu
 	std::stringstream sy;
 	sy << year;
 	if (!(sy >> y && year.length() == 4)){// innerhalb der spanne die von der DB abgedeckt ist
-		//throw error
+		throw BitcoinExchange::Error("Error: date format -> year");
 	}
 	std::getline(stream, month, '-');
 	std::stringstream sm;
 	sm << month;
 	if (!(sm >> m && month.length() == 2)){// innerhalb der spanne die von der DB abgedeckt ist
-		// throw here
-		// std::cout << month;
+		throw BitcoinExchange::Error("Error: date format -> month");
 	}
 	std::getline(stream, day);
 	std::stringstream sd;
 	sd << day;
 	if (!(sd >> d && day.length() == 2)){// innerhalb der spanne die von der DB abgedeckt ist
-		// throw here
-		// std::cout << day;
+		throw BitcoinExchange::Error("Error: date format -> day");
 	}
+
+	/*validate inputvalue*/
+
+	(void)inputvalue;
 
 	return (0);
 }
 
-void calcExchange(std::string inputdate, float inputvalue, BitcoinExchange b){
-	(void)inputdate;
-	(void)inputvalue;
-	(void)b;
-	
-	// how to access data in a map actually
+
+bool isWhitespace(char ch) {
+	return std::isspace(static_cast<unsigned char>(ch));
+}
+
+std::string trim(const std::string& str) {
+	if (str.empty()) {
+		return str;
+	}
+
+	// Find the first non-whitespace character
+	size_t start = 0;
+	while (start < str.size() && isWhitespace(str[start])) {
+		++start;
+	}
+
+	// If the string is all whitespace, return an empty string
+	if (start == str.size()) {
+		return "";
+	}
+
+	// Find the last non-whitespace character
+	size_t end = str.size() - 1;
+	while (end > start && isWhitespace(str[end])) {
+		--end;
+	}
+
+	// Create the substring from start to end
+	return str.substr(start, end - start + 1);
 }

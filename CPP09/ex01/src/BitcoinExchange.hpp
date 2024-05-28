@@ -19,10 +19,22 @@ class BitcoinExchange {
 
 		BitcoinExchange &operator=(const BitcoinExchange &a);
 
+	class Error : public std::exception
+	{
+		private:
+			std::string _msg;
+
+		public:
+			Error(const std::string &msg);
+			virtual const char* what() const throw();
+			virtual ~Error() throw();
+	};
+
+	void calcExchange(std::string inputdate, float inputvalue);
 };
 
-int validateinputline(std::string inputdate);
-
-void calcExchange(std::string inputdate, float inputvalue, BitcoinExchange b);
+int validateinputline(std::string inputdate, float inputvalue);
+std::string trim(const std::string& str);
+bool isWhitespace(char ch);
 
 #endif

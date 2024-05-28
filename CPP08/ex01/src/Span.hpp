@@ -44,8 +44,8 @@ class Span {
 		};
 
 		void addNumber(unsigned int val);
-		int shortestSpan();
-		int longestSpan();
+		double shortestSpan();
+		double longestSpan();
 		void addManyNumbers(unsigned int val1, unsigned int val2);
 };
 

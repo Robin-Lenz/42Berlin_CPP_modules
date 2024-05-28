@@ -61,29 +61,29 @@ void Span::addManyNumbers(unsigned int val1, unsigned int val2){
 	addNumber(val2);
 }
 
-int Span::shortestSpan(){
+double Span::shortestSpan(){
 	size_t len = _ls.size();
 	if (len <= 1){
 		throw NotEnoughValues();
 	}
-	int min = longestSpan();
+	double min = longestSpan();
 	for (std::list<int>::iterator i = _ls.begin(); i != _ls.end(); i++){
 		for (std::list<int>::iterator j = _ls.begin(); j != _ls.end(); j++){
 			if (i == j)
 				continue;
-			if (std::abs(*i - *j) < min)
-				min = std::abs(*i - *j);
+			if (std::abs(static_cast<double>(*i) - static_cast<double>(*j)) < min)
+				min = std::abs(static_cast<double>(*i) - static_cast<double>(*j));
 		}
 	}
 	return(min);
 }
 
-int Span::longestSpan(){
+double Span::longestSpan(){
 	size_t len = _ls.size();
 	if (len <= 1){
 		throw NotEnoughValues();
 	}
 	std::list<int>::iterator smallest = std::min_element(_ls.begin(), _ls.end());
 	std::list<int>::iterator largest = std::max_element(_ls.begin(), _ls.end());
-	return(*largest - *smallest);
+	return(static_cast<double>(*largest) - static_cast<double>(*smallest));
 }

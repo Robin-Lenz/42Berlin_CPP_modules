@@ -1,5 +1,17 @@
 #include "BitcoinExchange.hpp"
 
+const char* BitcoinExchange::Error::what() const throw(){
+	return _msg.c_str();
+}
+
+BitcoinExchange::Error::Error(const std::string &msg){
+	_msg = msg;
+}
+
+BitcoinExchange::Error::~Error() throw(){
+
+}
+
 BitcoinExchange::BitcoinExchange(){
 	
 };
@@ -28,6 +40,7 @@ BitcoinExchange::BitcoinExchange(const std::string &data){
 		std::istringstream iss(value);
 		iss >> floatvalue;
 		_data[date] = floatvalue;
+		// std::cout << "Date " << "|" << date << "|" << " inited to: " << floatvalue << _data[date] << std::endl;
 	}
 };
 
@@ -46,3 +59,11 @@ BitcoinExchange::~BitcoinExchange(){
 // 	std::cout << comma << '\n';
 // 	// std::split(line, ',');
 // }
+
+void BitcoinExchange::calcExchange(std::string inputdate, float inputvalue){
+	float result = inputvalue * _data[inputdate];
+	std::cout << inputdate << " => " << inputvalue << " = " << result << "           | " << _data[inputdate] << " |" << '\n';;
+	// std::cout << inputvalue << '\n';
+	// std::cout << "from map:" << _data[inputdate] << '\n';
+	// how to access data in a map actually
+}
