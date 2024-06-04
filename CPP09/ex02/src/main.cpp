@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robin <robin@student.42.fr>                #+#  +:+       +#+        */
+/*   By: rpodack <rpodack@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-06-01 20:21:58 by robin             #+#    #+#             */
-/*   Updated: 2024-06-01 20:21:58 by robin            ###   ########.fr       */
+/*   Created: 2024/06/01 20:21:58 by robin             #+#    #+#             */
+/*   Updated: 2024/06/04 13:26:23 by rpodack          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int ac, char **av){
 
 	try
 	{
+		// maby just put input validation and sorting the two types of container into the constructor ?
 		//validate input
 		PmergeMe seq(av);
 		//algorithm
