@@ -5,28 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: robin <robin@student.42.fr>                #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-05-30 15:31:03 by robin             #+#    #+#             */
-/*   Updated: 2024-05-30 15:31:03 by robin            ###   ########.fr       */
+/*   Created: 2024-06-01 20:21:58 by robin             #+#    #+#             */
+/*   Updated: 2024-06-01 20:21:58 by robin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int main(int ac, char **av){
-	if (ac != 2){
-		std::cerr << "Error: use ./RPN 'polish mathematical expression'\n";
+	if (ac < 2){
+		std::cerr << "Error: provide a sequenz of integers\n";
+		return(-1);
 	}
-	RPN rpn;
+
 
 	try
 	{
-		rpn.polishExpression(av[1]);
-		std::cout << rpn.getResult() << '\n';
+		//validate input
+		PmergeMe seq(av);
+		//algorithm
+		//print
 	}
-	catch( RPN::Error& e)
+	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	
 	return(0);
 }

@@ -15,6 +15,7 @@
 int main(){
 	int len = 100000;
 	Span sp = Span(len);
+	Span r = Span(5);
 	try
 	{
 		// sp.addManyNumbers(5, 150000);
@@ -26,7 +27,7 @@ int main(){
 		// 	int random = rand() % 100;
 		// 	sp.addNumber(random);
 		// }
-
+		r.addNumber(8);
 		sp.addNumber(-2147483646);
 		sp.addNumber(2147483646);
 		// sp.addNumber(9);
@@ -48,6 +49,6 @@ int main(){
 		std::cerr << e.what() << '\n';
 		return 1;
 	}
-	
+	sp = r;
 	return 0;
 }
