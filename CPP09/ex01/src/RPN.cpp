@@ -88,6 +88,6 @@ void RPN::solveterm(int numone, int numtwo, char c){
 	if (c == '/'){
 		if (numtwo == 0)
 			throw Error("Error: division by 0 is not defined");
-		_stack.push(numone / numtwo);
+		_stack.push(numtwo / numone);
 	}
 }

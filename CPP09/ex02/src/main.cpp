@@ -12,7 +12,7 @@
 
 #include "PmergeMe.hpp"
 
-int main(int ac, char **av){
+int main(int ac, const char **av){
 	if (ac < 2){
 		std::cerr << "Error: provide a sequenz of integers\n";
 		return(-1);
@@ -21,11 +21,7 @@ int main(int ac, char **av){
 
 	try
 	{
-		// maby just put input validation and sorting the two types of container into the constructor ?
-		//validate input
 		PmergeMe seq(av);
-		//algorithm
-		//print
 	}
 	catch(const std::exception& e)
 	{
