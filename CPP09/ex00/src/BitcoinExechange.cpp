@@ -79,23 +79,79 @@ void BitcoinExchange::val_date(std::string &inputdate){
 	std::getline(stream, year, '-');
 	std::stringstream sy;
 	sy << year;
-	if (!(sy >> y && year.length() == 4)){
+	if (!(sy >> y && year.length() == 4) || isMixed(year)){
 		throw BitcoinExchange::Error("Error: date format -> year");
 	}
 
 	std::getline(stream, month, '-');
 	std::stringstream sm;
 	sm << month;
-	if (!(sm >> m && month.length() == 2)){
+	if (!(sm >> m && month.length() == 2) || isMixed(month)){
 		throw BitcoinExchange::Error("Error: date format -> month");
 	}
-
 	std::getline(stream, day);
 	std::stringstream sd;
 	sd << day;
-	if (!(sd >> d && day.length() == 2)){
+	if ((!(sd >> d && day.length() == 2 && d >= 1 && d <= 31) || isMixed(day))){
 		throw BitcoinExchange::Error("Error: date format -> day");
 	}
+
+	if (!isValidDate(inputdate)){
+		throw BitcoinExchange::Error("Error: date does not exist");
+	}
+}
+
+bool	isValidDate(std::string &date)
+{
+	int year, month, day;
+	char c1, c2;
+	int	monthLen = 31;
+
+	std::istringstream iss(date);
+	iss >> year >> c1 >> month >> c2 >> day;
+	if (iss.fail() || c1 != '-' || c2 != '-')
+		return false;
+	if (iss.peek() != EOF)
+		return false;
+	if (year < 0 || month < 1 || day < 1 || month > 12)
+		return false;
+	if (month == 4 || month == 6 || month == 9 || month == 11)
+		monthLen = 30;
+	else if (month == 2)
+	{
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+			monthLen = 29;
+		else
+			monthLen = 28;
+	}
+	if (day > monthLen)
+		return false;
+	return true;
+}
+
+bool isMixed(std::string const &target){
+	int letter = 0;
+	bool digit = false;
+	int len = target.size();
+
+	for (int i = 0; target[i] == '-' || target[i] == '+' || target[i] == ' '; i++){
+		if (i >= 1)
+			return 1;
+	}
+	for (int i = 0; i < len; i++){
+		if (std::isdigit(target[i])){
+			digit = true;
+		}
+		else if (std::isalpha(target[i])){
+			letter++;
+		}
+	}
+	if (letter == 1 && target[len - 1] == 'f'){
+		letter = 0;
+	}
+	if (letter != 0 && digit)
+		return 1;
+	return 0;
 }
 
 void BitcoinExchange::val_value(std::string &inputdate, double inputvalue){

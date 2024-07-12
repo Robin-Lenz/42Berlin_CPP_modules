@@ -35,6 +35,13 @@ int main(int ac, char **av){
 		std::stringstream inputlinestream(inputline);
 		if (std::getline(inputlinestream, inputdate, '|') && inputlinestream >> inputvalue){
 			inputdate = trim(inputdate);
+			std::string should_be_empty;
+			inputlinestream >> should_be_empty;
+			if (!should_be_empty.empty()){
+				std::cerr << "Error: bad input " << inputline << '\n';
+				continue;
+			}
+			
 			// need tmp as inputdate might be manipulated in validateinputline to be able to retrieve the lower bound value and still print the date of the inputfile
 			tmp_inputdate = inputdate; 
 			try
@@ -51,6 +58,7 @@ int main(int ac, char **av){
 			std::cerr << "bad input " << inputline << '\n';
 		}
 	}
+	input.close();
 	return (0);
 }
 

@@ -13,6 +13,8 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
+#include <unistd.h>
+#include <stdio.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -53,5 +55,7 @@ class BitcoinExchange {
 
 std::string trim(const std::string& str);
 bool isWhitespace(char ch);
+bool isMixed(std::string const &target);
+bool	isValidDate(std::string &date);
 
 #endif
